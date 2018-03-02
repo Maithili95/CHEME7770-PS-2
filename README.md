@@ -14,8 +14,9 @@ Each of these functions can be called separately in Solve.jl
 The resulting arrays of the LP problem have been stored in the four folders in src labeled Aerobic regulated results, Anaerobic regulated results, Aerobic unregulated results, Anaerobic unregulated results.
 
 Changes were made to the exchange_array for all four fluxes based on the information in Palsson et al., 2009, Reconstruction and Use of Microbial Metabolic Networks: the Core Escherichia coli Metabolic Model as an Educational Guide .
-Glucose uptake rate = 10 mmol/gDW/h (so lower bound of M_glc_D_b was set to 
--10)
+
+Glucose uptake rate = 10 mmol/gDW/h (so lower bound of M_glc_D_b was set to -10)
+
 Rxns in involving pyruvate kinase and the production of glutamate are activated.
 
 Without regulatory constraints:
