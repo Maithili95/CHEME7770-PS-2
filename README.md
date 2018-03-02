@@ -47,6 +47,7 @@ Also their upper bounds in the exchange_array were set to a positive value. (als
 Discussion of results:
 
 The flux values obtained as the objective_value match those in Palsson et al. pg 35
+
 0.81 h-1  for aerobic conditions both with and without regulatory constraints and
 0.21 h-1 for anaerobic conditions both with and without regulatory constraints.
 
