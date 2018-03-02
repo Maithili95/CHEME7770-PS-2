@@ -38,7 +38,7 @@ function maximize_cellmass_aerobic_regulated_data_dictionary(time_start,time_sto
 	# ATP maintenance -
 	 default_flux_bounds_array[20,1:2] = 7.6
 
-	 #aerobic = ones(142,1)
+	
 
 	 #For aerobic regulatory constraints
 	 	biomass=1;
@@ -193,7 +193,7 @@ function maximize_cellmass_anaerobic_regulated_data_dictionary(time_start,time_s
 	# ATP maintenance -
 	 default_flux_bounds_array[20,1:2] = 7.6
 
-	 anaerobic = ones(142,1)
+	
 
 	 #For anaerobic regulatory constraints
 	 	biomass=1;
