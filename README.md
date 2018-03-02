@@ -18,7 +18,7 @@ Changes were made to the exchange_array for all four fluxes based on the informa
 
 Glucose uptake rate = 10 mmol/gDW/h (so lower bound of M_glc_D_b was set to -10)
 
-Rxns in involving pyruvate kinase and the production of glutamate are activated.
+Rxns in involving pyruvate kinase and the production of glutamate are activated. (This was done by changing CRPnoGLM to NOT(CRPnoGLM) for glnA in Table 17 of Palsson et al.)
 
 Without regulatory constraints:
 For the unregulated results, changes were made in the exchange_array.
