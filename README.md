@@ -11,6 +11,7 @@ DataDictionary contains four functions that are used to calculate the metabolic 
 4.	Anaerobic conditions without regulatory constraints (function maximize_cellmass_anaerobic_unregulated_data_dictionary)
 
 Each of these functions can be called separately in Solve.jl
+
 The resulting arrays of the LP problem have been stored in the four folders in src labeled Aerobic regulated results, Anaerobic regulated results, Aerobic unregulated results, Anaerobic unregulated results.
 
 Changes were made to the exchange_array for all four fluxes based on the information in Palsson et al., 2009, Reconstruction and Use of Microbial Metabolic Networks: the Core Escherichia coli Metabolic Model as an Educational Guide .
@@ -37,6 +38,7 @@ Since the cell is growing, Biomass_Ecoli_core was set to 1.
 Based on these, the Boolean values for table 17 were calculated and these were then used to calculate which of the reactions on table 16 are ‘on’ or ‘off’. The remaining reactions in the code were set to be ‘on’.
 
 Anaerobic conditions:
+
 Other than o2[e], nh4[e] , pi[e] and glc-D[e];   lactate lac-D, acetate ac and formate (for) and etoh are secreted by the cell in order to balance the reactions (so that the NADPH produced has a way to be used to form the above mentioned byproducts).  
 (ref. Palsson et al. pg 35)
 Their value in the Boolean is set to 1.
