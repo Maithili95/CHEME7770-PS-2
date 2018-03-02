@@ -38,7 +38,7 @@ function maximize_cellmass_aerobic_regulated_data_dictionary(time_start,time_sto
 	# ATP maintenance -
 	 default_flux_bounds_array[20,1:2] = 7.6
 
-	 aerobic = ones(142,1)
+	 #aerobic = ones(142,1)
 
 	 #For aerobic regulatory constraints
 	 	biomass=1;
@@ -89,48 +89,48 @@ function maximize_cellmass_aerobic_regulated_data_dictionary(time_start,time_sto
 	 	CRPnoGLM = 1-max(glc_D,mal_L,lac_D);
 
 		#Aerobic contraints array
-	 	aerobic[90,1] = min((1-IcIR),max((1-ArcA),FruR));
-	 	aerobic[93,1] = min((1-IcIR),max((1-ArcA),FruR),min((1-ArcA),GlcC));
-	 	aerobic[105,1] = max((1-PdhR),Fis);
-	 	aerobic[1,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	aerobic[2,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	aerobic[3,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	aerobic[4,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	aerobic[28,1] = max((1-Fnr),ArcA);
-	 	aerobic[71,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	aerobic[94,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	aerobic[129,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	aerobic[65,1] = max(min(CRPnoGLC,Fnr),ArcA);
-	 	aerobic[66,1] = max(min(CRPnoGLC,Fnr),ArcA);
-	 	aerobic[67,1] = max(Fnr,DcuR);
-	 	aerobic[69,1] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA));
-	 	aerobic[70,1] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA));
-	 	aerobic[79,1] = 1-max(Nac,glu_L);
-	 	aerobic[80,1] = 1-max(Nac,glu_L);
-	 	aerobic[29,1] = min((1-ArcA),GlcC);
-	 	aerobic[30,1] = min((1-ArcA),GlcC);
-	 	aerobic[77,1] = 1-CRPnoGLC;
-	 	aerobic[82,1] = 1-min(NRI_hi,glu_L);
-	 	aerobic[68,1] = max((1-Mlc),CRPnoGLM);
-	 	aerobic[76,1] = max((1-Mlc),CRPnoGLM);
-	 	aerobic[95,1] = 1-ArcA;
-	 	aerobic[96,1] = 1-ArcA;
-	 	aerobic[99,1] = 1-max(ArcA,Fnr);
-	 	aerobic[107,1] = max(ArcA,min(Fnr,CRPnoGLC),Fnr,max(CRPnoGLC,Fnr));
-	 	aerobic[115,1] = 1-PhoB;
-	 	aerobic[116,1] = 1-PhoB;
-	 	aerobic[119,1] = FruR;
-	 	aerobic[76,1] = max((1-Mlc),(1-FruR));
-	 	aerobic[122,1] = 1-FruR;
-	 	aerobic[131,1] = max((1-max(ArcA,Fnr)),CRPnoGLC,Fis);
-	 	aerobic[5,1] = max(Fnr,CRPnoGLC);
-	 	aerobic[6,1] = max(Fnr,CRPnoGLC);
-	 	aerobic[81,1] = max((1-glc_D),min(nh4,(1-CRPnoGLC)));
+	 	default_flux_bounds_array[90,2] = min((1-IcIR),max((1-ArcA),FruR))*100;
+	 	default_flux_bounds_array[93,2] = min((1-IcIR),max((1-ArcA),FruR),min((1-ArcA),GlcC))*100;
+	 	default_flux_bounds_array[105,2] = max((1-PdhR),Fis)*100;
+	 	default_flux_bounds_array[1,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[2,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[3,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[4,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[28,2] = max((1-Fnr),ArcA)*100;
+	 	default_flux_bounds_array[71,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[94,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[129,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[65,2] = max(min(CRPnoGLC,Fnr),ArcA)*100;
+	 	default_flux_bounds_array[66,2] = max(min(CRPnoGLC,Fnr),ArcA)*100;
+	 	default_flux_bounds_array[67,2] = max(Fnr,DcuR)*100;
+	 	default_flux_bounds_array[69,2] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA))*100;
+	 	default_flux_bounds_array[70,2] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA))*100;
+	 	default_flux_bounds_array[79,2] = (1-max(Nac,glu_L))*100;
+	 	default_flux_bounds_array[80,2] = (1-max(Nac,glu_L))*100;
+	 	default_flux_bounds_array[29,2] = min((1-ArcA),GlcC)*100;
+	 	default_flux_bounds_array[30,2] = min((1-ArcA),GlcC)*100;
+	 	default_flux_bounds_array[77,2] = (1-CRPnoGLC)*100;
+	 	default_flux_bounds_array[82,2] = (1-min(NRI_hi,glu_L))*100;
+	 	default_flux_bounds_array[68,2] = max((1-Mlc),CRPnoGLM)*100;
+	 	default_flux_bounds_array[76,2] = max((1-Mlc),CRPnoGLM)*100;
+	 	default_flux_bounds_array[95,2] = (1-ArcA)*100;
+	 	default_flux_bounds_array[96,2] = (1-ArcA)*100;
+	 	default_flux_bounds_array[99,2] = (1-max(ArcA,Fnr))*100;
+	 	default_flux_bounds_array[107,2] = (max(ArcA,min(Fnr,CRPnoGLC),Fnr,max(CRPnoGLC,Fnr)))*100;
+	 	default_flux_bounds_array[115,2] = (1-PhoB)*100;
+	 	default_flux_bounds_array[116,2] = (1-PhoB)*100;
+	 	default_flux_bounds_array[119,2] = FruR*100;
+	 	default_flux_bounds_array[76,2] = max((1-Mlc),(1-FruR))*100;
+	 	default_flux_bounds_array[122,2] = (1-FruR)*100;
+	 	default_flux_bounds_array[131,2] = max((1-max(ArcA,Fnr)),CRPnoGLC,Fis)*100;
+	 	default_flux_bounds_array[5,2] = max(Fnr,CRPnoGLC)*100;
+	 	default_flux_bounds_array[6,2] = max(Fnr,CRPnoGLC)*100;
+	 	default_flux_bounds_array[81,2] = max((1-glc_D),min(nh4,(1-CRPnoGLC)))*100;
 
 
 	 	# Default flux bounds array -
-	 	default_flux_bounds_array = data_dictionary["default_flux_bounds_array"]
-	 	default_flux_bounds_array[:,2] = default_flux_bounds_array[:,2].*aerobic[:,1]
+	 	#default_flux_bounds_array = data_dictionary["default_flux_bounds_array"]
+	 	#default_flux_bounds_array[:,2] = default_flux_bounds_array[:,2].*aerobic[:,1]
 	 	data_dictionary["default_flux_bounds_array"] = 	default_flux_bounds_array
 
 
@@ -244,48 +244,48 @@ function maximize_cellmass_anaerobic_regulated_data_dictionary(time_start,time_s
 	 	CRPnoGLM = 1-max(glc_D,mal_L,lac_D);
 
 	 	# Anaerobic constraints array
-	 	anaerobic[90,1] = min((1-IcIR),max((1-ArcA),FruR));
-	 	anaerobic[93,1] = min((1-IcIR),max((1-ArcA),FruR),min((1-ArcA),GlcC));
-	 	anaerobic[105,1] = max((1-PdhR),Fis);
-	 	anaerobic[1,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	anaerobic[2,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	anaerobic[3,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	anaerobic[4,1] = max((1-ox),1-(min(ox,FruR)),Fis);
-	 	anaerobic[28,1] = max((1-Fnr),ArcA);
-		anaerobic[70,1] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA));
-	 	anaerobic[79,1] = 1-max(Nac,glu_L);
-	 	anaerobic[80,1] = 1-max(Nac,glu_L);
-	 	anaerobic[29,1] = min((1-ArcA),GlcC);
-	 	anaerobic[30,1] = min((1-ArcA),GlcC);
-	 	anaerobic[77,1] = 1-CRPnoGLC;
-	 	anaerobic[82,1] = 1-min(NRI_hi,glu_L);
-	 	anaerobic[68,1] = max((1-Mlc),CRPnoGLM);
-	 	anaerobic[76,1] = max((1-Mlc),CRPnoGLM);
-	 	anaerobic[95,1] = 1-ArcA;
-	 	anaerobic[96,1] = 1-ArcA;
-	 	anaerobic[99,1] = 1-max(ArcA,Fnr);
-	 	anaerobic[107,1] = max(ArcA,min(Fnr,CRPnoGLC),Fnr,max(CRPnoGLC,Fnr));
-	 	anaerobic[115,1] = 1-PhoB;
-	 	anaerobic[116,1] = 1-PhoB;
-	 	anaerobic[71,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	anaerobic[94,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	anaerobic[129,1] = min(CRPnoGLM,(1-ArcA),DcuR);
-	 	anaerobic[65,1] = max(min(CRPnoGLC,Fnr),ArcA);
-	 	anaerobic[66,1] = max(min(CRPnoGLC,Fnr),ArcA);
-	 	anaerobic[67,1] = max(Fnr,DcuR);
-	 	anaerobic[69,1] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA));
-	 	anaerobic[119,1] = FruR;
-	 	anaerobic[76,1] = max((1-Mlc),(1-FruR));
-	 	anaerobic[122,1] = 1-FruR;
-	 	anaerobic[131,1] = max((1-max(ArcA,Fnr)),CRPnoGLC,Fis);
-	 	anaerobic[5,1] = max(Fnr,CRPnoGLC);
-	 	anaerobic[6,1] = max(Fnr,CRPnoGLC);
-	 	anaerobic[81,1] = max((1-glc_D),min(nh4,(1-CRPnoGLC)));
+		default_flux_bounds_array[90,2] = min((1-IcIR),max((1-ArcA),FruR))*100;
+	 	default_flux_bounds_array[93,2] = min((1-IcIR),max((1-ArcA),FruR),min((1-ArcA),GlcC))*100;
+	 	default_flux_bounds_array[105,2] = max((1-PdhR),Fis)*100;
+	 	default_flux_bounds_array[1,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[2,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[3,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[4,2] = max((1-ox),1-(min(ox,FruR)),Fis)*100;
+	 	default_flux_bounds_array[28,2] = max((1-Fnr),ArcA)*100;
+	 	default_flux_bounds_array[71,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[94,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[129,2] = min(CRPnoGLM,(1-ArcA),DcuR)*100;
+	 	default_flux_bounds_array[65,2] = max(min(CRPnoGLC,Fnr),ArcA)*100;
+	 	default_flux_bounds_array[66,2] = max(min(CRPnoGLC,Fnr),ArcA)*100;
+	 	default_flux_bounds_array[67,2] = max(Fnr,DcuR)*100;
+	 	default_flux_bounds_array[69,2] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA))*100;
+	 	default_flux_bounds_array[70,2] = max((1-max(ArcA,Fnr)),max(Fnr,CRPnoGLC,DcuR),(1-ArcA))*100;
+	 	default_flux_bounds_array[79,2] = (1-max(Nac,glu_L))*100;
+	 	default_flux_bounds_array[80,2] = (1-max(Nac,glu_L))*100;
+	 	default_flux_bounds_array[29,2] = min((1-ArcA),GlcC)*100;
+	 	default_flux_bounds_array[30,2] = min((1-ArcA),GlcC)*100;
+	 	default_flux_bounds_array[77,2] = (1-CRPnoGLC)*100;
+	 	default_flux_bounds_array[82,2] = (1-min(NRI_hi,glu_L))*100;
+	 	default_flux_bounds_array[68,2] = max((1-Mlc),CRPnoGLM)*100;
+	 	default_flux_bounds_array[76,2] = max((1-Mlc),CRPnoGLM)*100;
+	 	default_flux_bounds_array[95,2] = (1-ArcA)*100;
+	 	default_flux_bounds_array[96,2] = (1-ArcA)*100;
+	 	default_flux_bounds_array[99,2] = (1-max(ArcA,Fnr))*100;
+	 	default_flux_bounds_array[107,2] = (max(ArcA,min(Fnr,CRPnoGLC),Fnr,max(CRPnoGLC,Fnr)))*100;
+	 	default_flux_bounds_array[115,2] = (1-PhoB)*100;
+	 	default_flux_bounds_array[116,2] = (1-PhoB)*100;
+	 	default_flux_bounds_array[119,2] = FruR*100;
+	 	default_flux_bounds_array[76,2] = max((1-Mlc),(1-FruR))*100;
+	 	default_flux_bounds_array[122,2] = (1-FruR)*100;
+	 	default_flux_bounds_array[131,2] = max((1-max(ArcA,Fnr)),CRPnoGLC,Fis)*100;
+	 	default_flux_bounds_array[5,2] = max(Fnr,CRPnoGLC)*100;
+	 	default_flux_bounds_array[6,2] = max(Fnr,CRPnoGLC)*100;
+	 	default_flux_bounds_array[81,2] = max((1-glc_D),min(nh4,(1-CRPnoGLC)))*100;
 
 
 	 	# Default flux bounds array -
-	 	default_flux_bounds_array = data_dictionary["default_flux_bounds_array"]
-	 	default_flux_bounds_array[:,2] = default_flux_bounds_array[:,2].*anaerobic[:,1]
+	 	#default_flux_bounds_array = data_dictionary["default_flux_bounds_array"]
+	 	#default_flux_bounds_array[:,2] = default_flux_bounds_array[:,2].*anaerobic[:,1]
 	 	data_dictionary["default_flux_bounds_array"] = 	default_flux_bounds_array
 
 
